@@ -1,15 +1,15 @@
 import React from 'react'
 
+import NewOrderForm from '../components/orders/NewOrderForm'
 import ProtectedInfo from '../components/security/ProtectedInfo'
-import OrderTable from '../components/orders/OrderTable'
 
-const Orders = () => {
+const NewOrder = () => {
     return (
         <ProtectedInfo>
-            <OrderTable />
+            <NewOrderForm />
         </ProtectedInfo>
     )
 }
 
-export default Orders
+export default NewOrder
 

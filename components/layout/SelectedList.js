@@ -8,9 +8,10 @@ import {
     ListItemIcon,
     Divider
 } from '@material-ui/core'
-import InboxIcon from '@material-ui/icons/Inbox'
-import DraftsIcon from '@material-ui/icons/Drafts'
-
+import AssessmentIcon from '@material-ui/icons/Assessment'
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
+import RecentActorsIcon from '@material-ui/icons/RecentActors'
 const SelectedList = () => {
     // Next Js router
     const router = useRouter()
@@ -21,15 +22,15 @@ const SelectedList = () => {
     };
     return (
         <List component="nav" aria-label="drawer-list">
-            <Link href="/" passHref>
+            <Link href="/clients" passHref>
                 <ListItem
                     button
                     component="a"
-                    selected={router.pathname === "/"}
+                    selected={router.pathname === "/clients"}
                     onClick={(event) => handleListItemClick(event, 0)}
                 >
                     <ListItemIcon>
-                        <InboxIcon />
+                        <RecentActorsIcon />
                     </ListItemIcon>
                     <ListItemText primary="Clients" />
                 </ListItem>
@@ -42,7 +43,7 @@ const SelectedList = () => {
                     onClick={(event) => handleListItemClick(event, 1)}
                 >
                     <ListItemIcon>
-                        <DraftsIcon />
+                        <LibraryBooksIcon />
                     </ListItemIcon>
                     <ListItemText primary="Orders" />
                 </ListItem>
@@ -55,12 +56,39 @@ const SelectedList = () => {
                     onClick={(event) => handleListItemClick(event, 1)}
                 >
                     <ListItemIcon>
-                        <DraftsIcon />
+                        <ShoppingBasketIcon />
                     </ListItemIcon>
                     <ListItemText primary="Products" />
                 </ListItem>
             </Link>
             <Divider />
+            <br />
+            <Link href="/best-sellers" passHref>
+                <ListItem
+                    button
+                    component="a"
+                    selected={router.pathname === "/best-sellers"}
+                    onClick={(event) => handleListItemClick(event, 1)}
+                >
+                    <ListItemIcon>
+                        <AssessmentIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Best sellers" />
+                </ListItem>
+            </Link>
+            <Link href="/best-clients" passHref>
+                <ListItem
+                    button
+                    component="a"
+                    selected={router.pathname === "/best-clients"}
+                    onClick={(event) => handleListItemClick(event, 1)}
+                >
+                    <ListItemIcon>
+                        <AssessmentIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Best clients" />
+                </ListItem>
+            </Link>
         </List>
     )
 }

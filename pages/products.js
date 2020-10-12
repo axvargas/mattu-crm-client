@@ -1,10 +1,13 @@
 import React from 'react'
-import Layout from '../components/layout/Layout'
+
+import ProtectedInfo from '../components/security/ProtectedInfo'
+import ProductTable from '../components/products/ProductTable'
+
 const Products = () => {
     return (
-        <Layout>
-            Products
-        </Layout>
+        <ProtectedInfo>
+            <ProductTable />
+        </ProtectedInfo>
     )
 }
 

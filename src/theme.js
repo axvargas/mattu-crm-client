@@ -18,7 +18,7 @@ const theme = responsiveFontSizes(createMuiTheme({
             main: '#7114ea'
         },
         secondary: {
-            main: '#grey'
+            main: '#26a69a'
         },
         default: {
             main: 'black',
@@ -33,7 +33,7 @@ const theme = responsiveFontSizes(createMuiTheme({
         action: {
             disabled: 'black'
         }
-    },
+    }
 }));
 
 export default theme;

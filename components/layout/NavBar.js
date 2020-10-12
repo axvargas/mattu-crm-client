@@ -1,9 +1,10 @@
 import React from 'react'
-import Link from 'next/link'
-import { AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, IconButton, Hidden } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
+import Particles from 'react-particles-js'
 
+import NameDisplay from './NameDisplay'
 const DRAWER_WIDTH = 240
 const useStyles = makeStyles((theme) => ({
     menuButton: {
@@ -26,9 +27,73 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = ({ handleOpenClose }) => {
     const classes = useStyles()
+
     return (
         <>
             <AppBar position="fixed" color="primary" className={classes.appBar}>
+                <Particles
+                    params={{
+                        "particles": {
+                            "number": {
+                                "value": 160,
+                                "density": {
+                                    "enable": false
+                                }
+                            },
+                            "size": {
+                                "value": 3,
+                                "random": true,
+                                "anim": {
+                                    "speed": 4,
+                                    "size_min": 0.3
+                                }
+                            },
+                            "line_linked": {
+                                "enable": false
+                            },
+                            "move": {
+                                "random": true,
+                                "speed": 1,
+                                "direction": "top",
+                                "out_mode": "out"
+                            }
+                        },
+                        "interactivity": {
+                            "events": {
+                                "onhover": {
+                                    "enable": true,
+                                    "mode": "bubble"
+                                },
+                                "onclick": {
+                                    "enable": true,
+                                    "mode": "repulse"
+                                }
+                            },
+                            "modes": {
+                                "bubble": {
+                                    "distance": 250,
+                                    "duration": 2,
+                                    "size": 0,
+                                    "opacity": 0
+                                },
+                                "repulse": {
+                                    "distance": 400,
+                                    "duration": 4
+                                }
+                            }
+                        }
+                    }}
+                    style={{
+                        position: 'absolute',
+                        zIndex: 1,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        top: 0,
+                        zIndex: -1,
+                        backgroundColor: '#7114ea'
+                    }}
+                />
                 <Toolbar>
                     <IconButton
                         aria-label="menu-icon"
@@ -38,14 +103,14 @@ const NavBar = ({ handleOpenClose }) => {
                     >
                         <MenuIcon />
                     </IconButton>
+
                     <Typography variant="h6" className={classes.title}>
-                        Mattu CRM
+                        <Hidden only="xs" implementation="css">
+                            Mattu CRM
+                        </Hidden>
                     </Typography>
-                    <Link href="/sign-in" passHref>
-                        <Button variant="text" color="inherit">
-                            Sign out
-                    </Button>
-                    </Link>
+
+                    <NameDisplay />
                 </ Toolbar >
             </AppBar>
             {/* <div className={classes.toolbar} /> */}
